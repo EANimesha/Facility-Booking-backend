@@ -5,6 +5,8 @@ var cors=require('cors');
 var path=require('path');
 
 var users=require('./routes/users');
+var books=require('./routes/booking');
+var userVerify=require('./routes/verify');
 
 const app = express();
 
@@ -23,6 +25,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use('/',users);
+app.use('/book',userVerify,books);
 
 
 app.listen(3001, function() {
